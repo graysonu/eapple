@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>eApple</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/template.css">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+	<link rel="shortcut icon" href="favicon.ico">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	<script type="text/javascript" src="scripts/apples.js"></script>
+	<script type="text/javascript" src="scripts/index.js"></script>
+	<script type="text/javascript" src="scripts/refiner.js"></script>
+	<script type="text/javascript" src="scripts/modal.js"></script>
+	<script type="text/javascript" src="scripts/zipper.js"></script>
+	<!-- Google Analytics Snippet -->
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+  		_gaq.push(['_setAccount', 'UA-37545934-1']);
+  		_gaq.push(['_trackPageview']);
+
+  		(function() {
+    		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  		})();
+
+	</script>
+	<script>
+		$(function() {
+			$( document ).tooltip();
+		});
+		function searchfocus(field){
+			field.value = ""
+		}
+	</script>
+
+	<script>
+	$(document).ready(function() {
+		var windowWidth = $(window).width();
+		var refinerMargin = 0;
+		refinerMargin = windowWidth * .50 - 670;
+		$("#refiner_area").css("margin-left",refinerMargin);
+		$(".refineoption").hide();
+		$("#usaselector").hide();
+		$("#canadaselector").hide();
+		$("#restarter").hide();
+		$("#ohcanada").click(function() {
+			$("#countryselector").hide();
+			$("#canadaselector").show();
+			$("#restarter").show();
+		})
+		$("#ohsaycanyousee").click(function(){
+			$("#countryselector").hide();
+			$("#usaselector").show();
+			$("#restarter").show();
+		})
+		$("#cmurefine").click(function(){
+			$("#marketoptions").toggle();
+		})
+		$("#sizerefine").click(function(){
+			$("#sizeoptions").toggle();
+		})
+		$("#shaperefine").click(function() {
+			$("#shapeoptions").toggle();
+		})
+		$("#flavorrefine").click(function(){
+			$("#flavoroptions").toggle();
+		})
+		$("#texturerefine").click(function(){
+			$("#textureoptions").toggle();
+		})
+		$("#fleshcolorrefine").click(function() {
+			$("#fleshcoloroptions").toggle();
+		})
+		$("#basecolorrefine").click(function(){
+			$("#basecoloroptions").toggle();
+		})
+		$("#overcolorrefine").click(function() {
+			$("#overcoloroptions").toggle();
+		})
+		$("#colorpatternrefine").click(function() {
+			$("#colorpatternoptions").toggle();
+		})
+		$("#skinrussettingrefine").click(function() {
+			$("#skinrussettingoptions").toggle();
+		})
+		$("#usesrefine").click(function() {
+			$("#usesoptions").toggle();
+		})
+		$("#growthhabitrefine").click(function() {
+			$("#growthhabitoptions").toggle();
+		})
+		$("#treevigorrefine").click(function() {
+			$("#treevigoroptions").toggle();
+		})
+		$("#bloomseasonrefine").click(function() {
+			$("#bloomseasonoptions").toggle();
+		})
+		$("#chemicalthinningrefine").click(function() {
+			$("#chemicalthinningoptions").toggle();
+		})
+		$("#averageharvestdaterefine").click(function() {
+			$("#averageharvestdateoptions").toggle();
+		})
+		$("#fruitstorageliferefine").click(function() {
+			$("#fruitstoragelifeoptions").toggle();
+		})
+		$("#fireblightrefine").click(function() {
+			$("#fireblightoptions").toggle();
+		})
+		$("#applescabrefine").click(function() {
+			$("#applescaboptions").toggle();
+		})
+		$("#powderymildewrefine").click(function() {
+			$("#powderymildewoptions").toggle();
+		})
+		$("#rustsrefine").click(function() {
+			$("#rustsoptions").toggle();
+		})
+		$("#rotsrefine").click(function() {
+			$("#rotsoptions").toggle();
+		})
+		$("#sootyblotchflyspeckrefine").click(function() {
+			$("#sootyblotchflyspeckoptions").toggle();
+		})
+		$("#calciumrelateddisordersrefine").click(function() {
+			$("#calciumrelateddisordersoptions").toggle();
+		})
+		$("#fruitcrackingrefine").click(function() {
+			$("#fruitcrackingoptions").toggle();
+		})
+		$("#preharvestdroprefine").click(function() {
+			$("#preharvestdropoptions").toggle();
+		})
+		$("#biennialbearingrefine").click(function() {
+			$("#biennialbearingoptions").toggle();
+		})
+	});
+	</script>
+</head>
+
+<body>
+	
+	<div id="refiner_area" style=>
+		<h3>Refine results by:</h3>
+
+		<a href="javascript:void(0)" id="cmurefine">Current Market Uses</a>
+		<ul class="refineoption" id="marketoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('currentmarketuses', 'wholesale')">Wholesale</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('currentmarketuses', 'retail')">Retail</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('currentmarketuses', 'home')">Home</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="sizerefine">Fruit Size</a>
+		<ul class="refineoption" id="sizeoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('fruitsize', 'small')">Small</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fruitsize', 'medium')">Medium</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fruitsize', 'large')">Large</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fruitsize', 'very large')">Very Large</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="shaperefine">Fruit Shape</a>
+		<ul class="refineoption" id="shapeoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('fruitshape', 'conic')">Conic</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fruitshape', 'oblate')">Oblate</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fruitshape', 'oblique')">Oblique</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fruitshape', 'oblong')">Oblong</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fruitshape', 'ovate')">Ovate</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fruitshape', 'round')">Round</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="flavorrefine">Fruit Flavor</a>
+		<ul class="refineoption" id="flavoroptions">
+			<li><a href="javascript:void(0)" onclick="refiner('fruitflavor', 'bland')">Bland</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fruitflavor', 'sweet')">Sweet</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fruitflavor', 'sweet-tart')">Sweet-Tart</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fruitflavor', 'tart')">Tart</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="texturerefine">Fruit Texture</a>
+		<ul class="refineoption" id="textureoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('fleshtexture', 'soft')">Soft</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fleshtexture', 'medium')">Medium</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fleshtexture', 'firm')">Firm</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fleshtexture', 'very crisp')">Very Crisp</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="fleshcolorrefine">Flesh Color</a>
+		<ul class="refineoption" id="fleshcoloroptions">
+			<li><a href="javascript:void(0)" onclick="refiner('fleshcolor', 'white')">White</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fleshcolor', 'yellow')">Yellow</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fleshcolor', 'greenish-white')">Greenish-White</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fleshcolor', 'yellowish-white')">Yellowish-White</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fleshcolor', 'greenish-yellow')">Greenish-Yellow</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fleshcolor', 'pink')">Pink</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="basecolorrefine">Base Color</a>
+		<ul class="refineoption" id="basecoloroptions">
+			<li><a href="javascript:void(0)" onclick="refiner('basecolor', 'green')">Green</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('basecolor', 'greenish-yellow')">Greenish-Yellow</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('basecolor', 'yellow')">Yellow</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('basecolor', 'cream')">Cream</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="overcolorrefine">Over Color</a>
+		<ul class="refineoption" id="overcoloroptions">
+			<li><a href="javascript:void(0)" onclick="refiner('overcolor', 'dark red')">Dark Red</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('overcolor', 'bright red')">Bright Red</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('overcolor', 'orange red')">Orange Red</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('overcolor', 'pink')">Pink</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('overcolor', 'yellow')">Yellow</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('overcolor', 'green')">Green</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('overcolor', 'yellow-green')">Yellow-Green</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('overcolor', 'red')">Red</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="colorpatternrefine">Color Pattern</a>
+		<ul class="refineoption" id="colorpatternoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('colorpattern', 'solid')">Solid</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('colorpattern', 'blush')">Blush</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('colorpattern', 'stripe')">Stripe</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('colorpattern', 'blush-stripe combo')">Blush-Stripe Combo</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="skinrussettingrefine">Skin Russeting</a>
+		<ul class="refineoption" id="skinrussettingoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('skinrussetting', 'Yes')">Yes</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('skinrussetting', 'No')">No</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="usesrefine">Uses</a>
+		<ul class="refineoption" id="usesoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('uses', 'fresh')">Fresh</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('uses', 'sauce')">Sauce</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('uses', 'baking')">Baking</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('uses', 'juice')">Juice</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="growthhabitrefine">Growth Habit</a>
+		<ul class="refineoption" id="growthhabitoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('growthhabit', 'upright')">Upright</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('growthhabit', 'spreading')">Spreading</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('growthhabit', 'drooping')">Drooping</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="treevigorrefine">Tree Vigor</a>
+		<ul class="refineoption" id="treevigoroptions">
+			<li><a href="javascript:void(0)" onclick="refiner('treevigor', 'low')">Low</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('treevigor', 'moderate')">Moderate</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('treevigor', 'high')">High</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="bloomseasonrefine">Bloom Season</a>
+		<ul class="refineoption" id="bloomseasonoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('bloomseason', 'early')">Early</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('bloomseason', 'mid')">Mid</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('bloomseason', 'Late')">Late</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="chemicalthinningrefine">Chemical Thinning</a>
+		<ul class="refineoption" id="chemicalthinningoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('chemicalthinning', 'easy to thin')">Easy to Thin</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('chemicalthinning', 'moderate to thin')">Moderate to Thin</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('chemicalthinning', 'difficult to thin')">Difficult to Thin</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="averageharvestdaterefine">Average Harvest Date</a>
+		<ul class="refineoption" id="averageharvestdateoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('averageharvestdate', 'very early')">Very Early</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('averageharvestdate', 'early')">Early</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('averageharvestdate', 'mid')">Mid</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('averageharvestdate', 'late')">Late</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('averageharvestdate', 'very late')">Very Late</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="fruitstorageliferefine">Fruit Storage Life</a>
+		<ul class="refineoption" id="fruitstoragelifeoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('fruitstoragelife', 'short-term')">Short-Term</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fruitstoragelife', 'mid-term')">Mid-Term</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fruitstoragelife', 'long-term')">Long-Term</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="applescabrefine">Apple Scab</a>
+		<ul class="refineoption" id="applescaboptions">
+			<li><a href="javascript:void(0)" onclick="refiner('applescab', 'resistant')">Resistant</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('applescab', 'moderately resistant')">Moderately Resistant</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('applescab', 'susceptible')">Susceptible</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('applescab', 'highly susceptible')">Highly Susceptible</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="fireblightrefine">Fireblight</a>
+		<ul class="refineoption" id="fireblightoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('fireblight', 'highly susceptible')">Highly Susceptible</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fireblight', 'susceptible')">Susceptible</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fireblight', 'moderately resistant')">Moderately Resistant</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fireblight', 'resistant')">Resistant</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="powderymildewrefine">Powdery Mildew</a>
+		<ul class="refineoption" id="powderymildewoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('powderymildew', 'highly susceptible')">Highly Susceptible</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('powderymildew', 'susceptible')">Susceptible</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('powderymildew', 'moderately resistant')">Moderately Resistant</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('powderymildew', 'resistant')">Resistant</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="rustsrefine">Rusts</a>
+		<ul class="refineoption" id="rustsoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('rusts', 'highly susceptible')">Highly Susceptible</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('rusts', 'susceptible')">Susceptible</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('rusts', 'moderately resistant')">Moderately Resistant</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('rusts', 'resistant')">Resistant</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="rotsrefine">Rots</a>
+		<ul class="refineoption" id="rotsoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('rots', 'highly susceptible')">Highly Susceptible</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('rots', 'susceptible')">Susceptible</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('rots', 'moderately resistant')">Moderately Resistant</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('rots', 'resistant')">Resistant</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="sootyblotchflyspeckrefine">Sooty Blotch/Fly Speck</a>
+		<ul class="refineoption" id="sootyblotchflyspeckoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('sootyblotchflyspeck', 'highly susceptible')">Highly Susceptible</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('sootyblotchflyspeck', 'susceptible')">Susceptible</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('sootyblotchflyspeck', 'moderately resistant')">Moderately Resistant</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('sootyblotchflyspeck', 'resistant')">Resistant</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="calciumrelateddisordersrefine">CA Related Disorders</a>
+		<ul class="refineoption" id="calciumrelateddisordersoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('calciumrelateddisorders', 'rare')">Rare</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('calciumrelateddisorders', 'common')">Common</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="fruitcrackingrefine">Fruit Cracking</a>
+		<ul class="refineoption" id="fruitcrackingoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('fruitcracking', 'yes')">Yes</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('fruitcracking', 'no')">No</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="preharvestdroprefine">Preharvest Drop</a>
+		<ul class="refineoption" id="preharvestdropoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('preharvestdrop', 'low')">Low</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('preharvestdrop', 'moderate')">Moderate</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('preharvestdrop', 'severe')">Severe</a></li>
+		</ul>
+
+		<br>
+
+		<a href="javascript:void(0)" id="biennialbearingrefine">Biennial Bearing</a>
+		<ul class="refineoption" id="biennialbearingoptions">
+			<li><a href="javascript:void(0)" onclick="refiner('biennialbearing', 'rare')">Rare</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('biennialbearing', 'slight')">Slight</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('biennialbearing', 'moderate')">Moderate</a></li>
+			<li><a href="javascript:void(0)" onclick="refiner('biennialbearing', 'high')">High</a></li>
+		</ul>
+
+		<br>
+
+	</div>
+
+	<div id="wrap">
+		<div id="UofMglobalheader">
+<!-- BEGIN CAMPUS LINKS -->
+    <div id="campus_links">
+        <p>Campuses: </p>
+        <ul>
+          <li><a href="http://www.umn.edu">Twin Cities</a></li>
+
+          <li><a href="http://www.crk.umn.edu">Crookston</a></li>
+          <li><a href="http://www.d.umn.edu">Duluth</a></li>
+          <li><a href="http://www.morris.umn.edu">Morris</a></li>
+          <li><a href="http://www.r.umn.edu">Rochester</a></li>
+          <li><a href="http://www.umn.edu/campuses.php">Other Locations</a></li>
+        </ul>
+
+    </div>
+    <!-- END CAMPUS LINKS -->
+
+ <!-- * BEGIN TEMPLATE HEADER (MAROON BAR)* -->
+    <div id="headerUofM">
+        
+      <div id="logo_uofm"><a href="http://www.umn.edu/">Go to the U of M home page</a></div>
+        
+
+ <!--BEGIN search div-->
+      <div id="search_area">
+         <div id="search_nav"><a href="http://onestop.umn.edu/" id="btn_onestop">OneStop</a> <a href="https://www.myu.umn.edu/" id="btn_myu">myU</a></div>
+         
+<div class="search"> 
+<form action="http://google.umn.edu/search" method="get" name="gsearch" id="gsearch">
+<label for="search_field">Search U of M Web sites</label>
+<input type="text" id="search_field" name="q" onfocus="searchfocus(this)" value="Search U of M Web sites" />   
+<input type="image" value="Search" class="search_btn" alt="Submit Search" src="http://www.cfans.umn.edu/prod/fragments/cfans960globalheader/search_button.gif" />
+<input name="client" value="searchumn" type="hidden" />
+<input name="proxystylesheet" value="searchumn" type="hidden" />
+<input name="output" value="xml_no_dtd" type="hidden" />
+</form>  
+</div> 
+         
+</div></div>
+<!-- end "search" area -->
+     
+</div>
+<!-- End search div -->
+
+<!--END UofM TEMPLATE HEADER-->
+		<div id="introductory">
+			<h3>Welcome to the Apple Cultivar Selection Tool!</h3>
+			<p>Please use the following options to find the right apple cultivars for your site.</p>
+			<hr>
+		</div>
+		<div id="restarter">
+			<a href="destroy.php">Restart</a>
+		</div>
+		<div id="countryselector"><p>Will the site be in the <a href="javascript:void(0)" id="ohsaycanyousee">USA</a> or <a href="javascript:void(0)" id="ohcanada">Canada</a>?</p></div>
+
+<!-- In the future, if the USDA decides to remove it's CAPTCHA requirements, this will provide a Zip to Hardiness Zone converter righ on the page. -->
+<!-- 		<form name="zipperform" action="javascript:void(0)" id="zipenter" onsubmit="zipper()">
+			Enter your zip code: <input type="text" name="zip" >
+			<input type="submit" value="Submit">
+		</form> -->
+
+		<form id="usaselector">
+		Select the hardiness zone where you plan on planting: <a href="http://planthardiness.ars.usda.gov/PHZMWeb/" target="_blank" title="If you are unsure of your hardiness zone, clicking this [?] will take you to the USDA zone finder.">[?]</a><br />
+		<select class="hardinesser" name="usazones">
+			<option value="">Select proper hardiness zone:</option>
+			<option value="2a">2a</option>
+			<option value="2b">2b</option>
+			<option value="3a">3a</option>
+			<option value="3b">3b</option>
+			<option value="4a">4a</option>
+			<option value="4b">4b</option>
+			<option value="5a">5a</option>
+			<option value="5b">5b</option>
+			<option value="6a">6a</option>
+			<option value="6b">6b</option>
+			<option value="7a">7a</option> 
+			<option value="7b">7b</option>
+		</select><br />
+		</form>
+
+		<form id="canadaselector">
+		Select the average annual minimum temperature of your site in degrees Celsius: <a href="javascript:void(0)" title="Your selection will be converted into a USDA Hardiness Zone and used to generate a list of viable cultivars">[?]</a><br/>
+		<select class="hardinesser" name="canadazones">
+			<option value="">Select proper temperature:</option>
+			<option value="2a">-45.6&deg</option>
+			<option value="2b">-42.8&deg</option>
+			<option value="3a">-40&deg</option>
+			<option value="3b">-37.2&deg</option>
+			<option value="4a">-34.4&deg</option>
+			<option value="4b">-31.7&deg</option>
+			<option value="5a">-28.9&deg</option>
+			<option value="5b">-26.1&deg</option>
+			<option value="6a">-23.3&deg</option>
+			<option value="6b">-20.6&deg</option>
+			<option value="7a">-17.8&deg</option> 
+			<option value="7b">-15&deg</option>
+		</select><br />
+		</form>
+
+	<div id="infoModal" title="Apple Information"><p></p></div>
+	<div id="applearea"></div>
+	</div>
+	<!--wp_footer--><div id="UofMglobalfooter">
+<!-- BEGIN UofM FOOTER -->
+<div class="grid_7 alpha" id="footer_inner">
+    <ul class="copyright">
+    	<li>&copy; 2013 Regents of the University of Minnesota. All rights reserved.</li>
+    	<li>The University of Minnesota is an equal opportunity educator and employer</li>
+		<li>Last modified: January 22nd, 2013</li>
+
+	</ul>
+	</div>
+    	<div class="grid_5 omega" id="footer_right">
+    		<ul class="footer_links">
+    			<li>Twin Cities Campus: </li>
+    			<li><a href="http://www1.umn.edu/pts/">Parking & Transportation</a></li>
+    			<li><a href="http://www.umn.edu/twincities/maps/index.html">Maps & Directions</a></li></ul>
+    		<br class="clearabove" />
+    		<ul class="footer_links"><li><a href="http://www.directory.umn.edu/">Directories</a></li>
+   				<li><a href="http://www.umn.edu/twincities/contact/">Contact U of M</a></li>
+    			<li><a href="http://www.privacy.umn.edu/">Privacy</a></li>
+    		</ul>
+
+			<br class="clearabove" />
+		</div>
+<!-- END UofM FOOTER --></div>
+
+</body>
+</html>

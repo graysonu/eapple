@@ -1,0 +1,121 @@
+@charset "utf-8";
+/* CFANS global styles to override U of M global CSS files */
+
+/* Font Styling */
+p,h1,h2,h3, h4, h5, h6 {padding-left:10px; padding-right:10px;}
+h3 {font-style: normal; font-weight:bold;}
+h4 {font-weight:bold; text-transform: none;}
+ul {margin-right: 10px;}
+.grid_7 ol, .grid_10 ol {margin-right: 10px;}
+
+/* Table Styling */
+table { border-collapse: collapse; margin: 10px; border:1px solid #D2D2D2;}
+th {font-weight: bold; padding:3px; text-align:left;}
+th, td {border: 1px solid #CCC; padding: 3px; vertical-align:top;}
+table.noborder {border:1px solid #FFFFFF;}
+.noborder td, .noborder th {border:1px solid #FFFFFF;}
+
+/* Navigation Styling */
+#main_nav_3 { margin: 10px 20px 0 0; line-height: 25px; width: 220px; }
+ul.main_nav {margin-left: 0px;}
+ul.main_nav li {display:block; margin:2px 0 15px -30px; list-style:none; line-height: 1em;}
+
+
+ul.main_nav a {
+	color:#000;	
+	font-weight: bold;
+	text-decoration:none;
+	padding-left: -30px;
+}
+
+
+ul.main_nav li, ul.main_nav dt {margin-bottom: 12px; line-height: 1.2em;}
+
+.main_nav-focus-1, .main_nav-focus-2, .main_nav-focus-3 {
+
+}
+.main_nav-focus-2, .main_nav-2 {
+font-size:95%;
+/* padding-left:10px; */
+padding-left: 5px;
+}
+.main_nav-focus-3, .main_nav-3 {
+font-size:95%;
+/* padding-left:10px;*/
+margin-bottom: 10px;
+}
+
+.main_nav-focus-4, .main_nav-4 {
+font-size:95%;
+/* padding-left:0px;*/
+margin-bottom: 10px;
+font-weight: normal;
+}
+
+.main_nav-focus-5, .main_nav-5{
+	font-size:90%;
+	/* padding-left:0px;*/
+margin-bottom: 10px;
+	font-weight: lighter;
+}
+
+hr.mainnav {
+border-color: -moz-use-text-color -moz-use-text-color #D4CFC7;
+border-style:none none solid;
+border-width:0 0 1px 0;
+margin: 0 0 20px 10px; 
+width: 139px;
+ 
+}
+
+.main_nav img {margin-left: -10px;} 
+
+dt.cfansnav4, dt.cfansnav4-focus {margin-left: 0px; padding-left: 8px; padding-top: 8px; padding-right: 5px; padding-bottom: 8px;}
+dt.cfansnav4-1, dt.cfansnav4-focus-1 {margin-left: 0px; padding-left: 8px; padding-top: 8px; padding-right: 5px; padding-bottom: 8px;}
+dt.cfansnav4-2, dt.cfansnav4-focus-2 {margin-left: 0px; padding-left: 13px; padding-top: 6px; padding-right: 5px; padding-bottom: 6px;}
+dd.cfansnav4-3, dd.cfansnav4-focus-3 {margin-left: 6px; padding-left: 15px; padding-top: 6px; padding-right: 5px; padding-bottom: 6px;}
+dd.cfansnav4-4, dd.cfansnav4-focus-4 {margin-left: 3px; padding-left: 18px; padding-top: 6px; padding-right: 5px; padding-bottom: 6px;}
+dd.cfansnav4-5, dd.cfansnav4-focus-5 {margin-left: 3px; padding-left: 18px; padding-top: 6px; padding-right: 5px; padding-bottom: 6px;}
+dd.cfansnav4-6, dd.cfansnav4-focus-6 {margin-left: 3px; padding-left: 18px; padding-top: 6px; padding-right: 5px; padding-bottom: 6px;}
+
+/* Right-column Styling */
+.grid_3 h2 {
+
+	padding: 5px 5px 5px 10px;
+
+	margin-top: 0;
+	margin-left: 0px;
+	font-size: 1.2em;
+	font-weight:bold;
+}
+
+.grid_3 ul, .grid_3 ol {margin-left: -10px; margin-right: 10px;}
+.grid_3 li {margin-bottom: 12px;}
+
+
+
+/* Image Styling */
+.floatimgleft {
+float:left;
+margin:0 10px 10px 0;
+}
+.floatimgright {
+float:right;
+margin:0 0 10px 10px;
+}
+
+/* Footer Styling */
+#unit_footer2 {font-size:90%; border-bottom: 3px solid #e4e4e4; padding:5px 0 0 0; line-height: 20px; width: 960px; clear:both;}
+
+/* Sub-homepage column styling */
+
+.grid_3-5 {display: inline; float: left; overflow:visible; padding-top: 0; }
+.grid_3-5 h2, .grid_3-5 h2 img {margin-top: 0; padding-top: 0;}
+.container_12 .grid_3-5 {width: 270px;}
+.rightborder {border-right: 1px solid #CCC;}
+
+
+hr {width: 98%;}
+
+.caption  {color: #666; font-size: 11px; font-family:Arial, Helvetica, sans-serif;}
+.photocredit {color: #999; font-size: 9px; font-family:Arial, Helvetica, sans-serif;}
