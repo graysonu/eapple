@@ -1092,7 +1092,7 @@ img.wp-smiley, img.wp-wink {
     margin-right: auto;
     width: 960px;
 }
-#UofMglobalfooter {clear:both; border-top: 1px solid #333333;}
+#UofMglobalfooter {clear:both; border-top: 1px solid #333333;margin-top: 30%;}
 	
 	
 #topnav {display: none;}
@@ -1100,26 +1100,31 @@ img.wp-smiley, img.wp-wink {
 
 /*********REFINEMENT TOOLBAR****************/
 #refiner_area{
-	float:left;
-	width:163px;
-	/*margin: 12% 0 0 1%;*/
-	margin-top: 12%;
-	margin-left: 0;
-	border-style: double;
+	background-image: -ms-linear-gradient(top left, #FFCC33 0%, #CFA529 100%); 
+	background-image: -moz-linear-gradient(top left, #FFCC33 0%, #CFA529 100%);
+	background-image: -o-linear-gradient(top left, #FFCC33 0%, #CFA529 100%);
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #FFCC33), color-stop(1, #CFA529));
+	background-image: -webkit-linear-gradient(top left, #FFCC33 0%, #CFA529 100%);
+	background-image: linear-gradient(to bottom right, #FFCC33 0%, #CFA529 100%);
+    float: left;
+    margin: 11px 0 0;
+    position: relative;
+    width: 170px;
 }
 
 #refiner_area a {
 	color: black;
-	margin-left: 10px;
+	margin-left: 20px;
 }
 
 #refiner_area h3 {
 	margin: 10px 0 3px -7px;
+	text-align: center;
+	color: black;
 }
 
 #refiner_area a:hover {
-	text-decoration: none;
-	background-color: #D7D7D7;
+	text-decoration: underline;
 }
 
 .refineoption{
@@ -1136,17 +1141,29 @@ img.wp-smiley, img.wp-wink {
 /*********RESULTS***************************/
 .appleresults{
 	float:left;
-	width:158px;
-	height:215px;
-	margin:15px;
+	margin:5px 0 0 4px;
 	border:1px;
 	table-layout:fixed;
 	overflow:hidden;
 	text-overflow:ellipses;
 }
+
+/*table.appleresults:hover {
+	border: 2px solid lightgray;
+	border-radius: 5px;
+}*/
+.apple-img{
+	width: 183px;
+	height: 155px;
+}
 .name{
 	height:50px;
 	table-layout:fixed;
+	text-align: center;
+	font-weight: bold;
+}
+p.name{
+	margin: 0 0 0 0;
 }
 .synonyms{
 	height:50px;
@@ -1168,11 +1185,19 @@ a.unsetter:hover{
 }
 
 #applearea{
-	margin: 0 0 0 10px;
+    display: inline-block;
+    float: right;
+    margin: -39px 0 0;
+    width: 776px;
+}
+
+
+#applearea b, #applearea a {
+    float: right;
 }
 
 #restarter{
-	margin: 0 0 0 10px;
+	margin: 10px 0 3px 10px;
 }
 
 #usaselector, #canadaselector{
@@ -1183,9 +1208,95 @@ a.unsetter:hover{
 	width: 98%;
 }
 
+a > img {
+    height: 50px;
+    width: 100px;
+    margin: -25px 0 0 15px;
+}
 
+a > img:hover {
+	border: 2px solid lightgray;
+	border-radius: 5px;
+}
 
+#countryselector > p {
+    font-size: 15px;
+    font-weight: bolder;
+}
 
+/*Buttons*/
+.selector-button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #eb9790;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #eb9790;
+	box-shadow:inset 0px 1px 0px 0px #eb9790;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #7a0018), color-stop(1, #600013) );
+	background:-moz-linear-gradient( center top, #7a0018 5%, #600013 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7a0018', endColorstr='#600013');
+	background-color:#7a0018;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+}.classname:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #600013), color-stop(1, #7a0018) );
+	background:-moz-linear-gradient( center top, #600013 5%, #7a0018 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#600013', endColorstr='#7a0018');
+	background-color:#600013;
+}.classname:active {
+	position:relative;
+	top:1px;
+}
+
+#restarter > a {
+    color: white;
+    font-weight: lighter;
+    font-size: 16px;
+}
+
+#restarter > a:hover {
+	text-decoration: none;
+	border-bottom: 2px solid #FFCC33;
+}
+
+#refiner_area > hr {
+	width: 80%;
+	border: none;
+	height: 1px;
+	background: black;
+	margin-top: -2px;
+	margin-bottom: 10px;
+}
+
+/*Master page styling - Attempt to match Zoho Creator*/
+
+table.master {
+    border: 1px solid black;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 960px;
+    border-collapse: collapse;
+}
+
+td.category {
+    background: #FFF7DB;
+    font-weight: bold;
+    width: 225px;
+}
+
+.master td {
+    border: 1px solid #E7CC6E;
+    padding: 5px;
+}
+
+td.data {
+	font-size: 13px;
+}
 /*
 #content .post h1.entry-title {margin-left: 0px;}
-#content .page h1.entry-title {margin-left: 10px;} */
+#content .page h1.entry-title {margin-left: 10px;} 

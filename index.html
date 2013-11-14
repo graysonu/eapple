@@ -38,23 +38,18 @@
 
 	<script>
 	$(document).ready(function() {
-		var windowWidth = $(window).width();
-		var refinerMargin = 0;
-		refinerMargin = windowWidth * .50 - 670;
-		$("#refiner_area").css("margin-left",refinerMargin);
 		$(".refineoption").hide();
 		$("#usaselector").hide();
 		$("#canadaselector").hide();
 		$("#restarter").hide();
+		$("#refiner_area").hide();
 		$("#ohcanada").click(function() {
-			$("#countryselector").hide();
-			$("#canadaselector").show();
-			$("#restarter").show();
+			$("#countryselector").slideUp(1000, "swing");
+			$("#canadaselector").fadeIn(500);
 		})
 		$("#ohsaycanyousee").click(function(){
-			$("#countryselector").hide();
-			$("#usaselector").show();
-			$("#restarter").show();
+			$("#countryselector").slideUp(1000, "swing");
+			$("#usaselector").fadeIn(500);
 		})
 		$("#cmurefine").click(function(){
 			$("#marketoptions").toggle();
@@ -142,9 +137,118 @@
 </head>
 
 <body>
-	
-	<div id="refiner_area" style=>
+
+	<div id="wrap">
+		<div id="UofMglobalheader">
+<!-- BEGIN CAMPUS LINKS -->
+    <div id="campus_links">
+        <p>Campuses: </p>
+        <ul>
+          <li><a href="http://www.umn.edu">Twin Cities</a></li>
+
+          <li><a href="http://www.crk.umn.edu">Crookston</a></li>
+          <li><a href="http://www.d.umn.edu">Duluth</a></li>
+          <li><a href="http://www.morris.umn.edu">Morris</a></li>
+          <li><a href="http://www.r.umn.edu">Rochester</a></li>
+          <li><a href="http://www.umn.edu/campuses.php">Other Locations</a></li>
+        </ul>
+
+    </div>
+    <!-- END CAMPUS LINKS -->
+
+ <!-- * BEGIN TEMPLATE HEADER (MAROON BAR)* -->
+    <div id="headerUofM">
+        
+      <div id="logo_uofm"><a href="http://www.umn.edu/">Go to the U of M home page</a></div>
+        
+
+ <!--BEGIN search div-->
+      <div id="search_area">
+         <div id="search_nav"><a href="http://onestop.umn.edu/" id="btn_onestop">OneStop</a> <a href="https://www.myu.umn.edu/" id="btn_myu">myU</a></div>
+         
+<div class="search"> 
+<form action="http://google.umn.edu/search" method="get" name="gsearch" id="gsearch">
+<label for="search_field">Search U of M Web sites</label>
+<input type="text" id="search_field" name="q" onfocus="searchfocus(this)" value="Search U of M Web sites" />   
+<input type="image" value="Search" class="search_btn" alt="Submit Search" src="http://www.cfans.umn.edu/prod/fragments/cfans960globalheader/search_button.gif" />
+<input name="client" value="searchumn" type="hidden" />
+<input name="proxystylesheet" value="searchumn" type="hidden" />
+<input name="output" value="xml_no_dtd" type="hidden" />
+</form>  
+</div> 
+         
+</div></div>
+<!-- end "search" area -->
+     
+</div>
+<!-- End search div -->
+
+<!--END UofM TEMPLATE HEADER-->
+	<div id="banner">
+		<img src="/images/banner7(MANSONMANSONMANSONMANSON).png">
+	</div>
+		<div id="introductory">
+			<h3>Welcome to the Apple Cultivar Selection Tool!</h3>
+			<p>Please use the following options to find the right apple cultivars for your site.</p>
+			<hr>
+		</div>
+		<div id="restarter" class="selector-button">
+			<a href="destroy.php">Restart</a>
+		</div>
+		<div id="countryselector">
+			<p>Where will the site be located?</p>
+			<br>
+			<a href="javascript:void(0)" id="ohsaycanyousee"><img src="/images/usflag.png"></a>
+			&nbsp
+			<a href="javascript:void(0)" id="ohcanada"><img src="/images/canada.png"></a></div>
+
+<!-- In the future, if the USDA decides to remove it's CAPTCHA requirements, this will provide a Zip to Hardiness Zone converter righ on the page. -->
+<!-- 		<form name="zipperform" action="javascript:void(0)" id="zipenter" onsubmit="zipper()">
+			Enter your zip code: <input type="text" name="zip" >
+			<input type="submit" value="Submit">
+		</form> -->
+
+		<form id="usaselector">
+		Select the hardiness zone where you plan on planting: <a href="http://planthardiness.ars.usda.gov/PHZMWeb/" target="_blank" title="If you are unsure of your hardiness zone, clicking this [?] will take you to the USDA zone finder.">[?]</a><br />
+		<select class="hardinesser" name="usazones">
+			<option value="">Select proper hardiness zone:</option>
+			<option value="2a">2a</option>
+			<option value="2b">2b</option>
+			<option value="3a">3a</option>
+			<option value="3b">3b</option>
+			<option value="4a">4a</option>
+			<option value="4b">4b</option>
+			<option value="5a">5a</option>
+			<option value="5b">5b</option>
+			<option value="6a">6a</option>
+			<option value="6b">6b</option>
+			<option value="7a">7a</option> 
+			<option value="7b">7b</option>
+		</select><br />
+		</form>
+
+		<form id="canadaselector">
+		Select the average annual minimum temperature of your site in degrees Celsius: <a href="javascript:void(0)" title="Your selection will be converted into a USDA Hardiness Zone and used to generate a list of viable cultivars">[?]</a><br/>
+		<select class="hardinesser" name="canadazones">
+			<option value="">Select proper temperature:</option>
+			<option value="2a">-45.6&deg</option>
+			<option value="2b">-42.8&deg</option>
+			<option value="3a">-40&deg</option>
+			<option value="3b">-37.2&deg</option>
+			<option value="4a">-34.4&deg</option>
+			<option value="4b">-31.7&deg</option>
+			<option value="5a">-28.9&deg</option>
+			<option value="5b">-26.1&deg</option>
+			<option value="6a">-23.3&deg</option>
+			<option value="6b">-20.6&deg</option>
+			<option value="7a">-17.8&deg</option> 
+			<option value="7b">-15&deg</option>
+		</select><br />
+		</form>
+	<div id="refiner_area">
 		<h3>Refine results by:</h3>
+
+		<hr>
 
 		<a href="javascript:void(0)" id="cmurefine">Current Market Uses</a>
 		<ul class="refineoption" id="marketoptions">
@@ -411,109 +515,9 @@
 		</ul>
 
 		<br>
+		<a>&nbsp</a>
 
 	</div>
-
-	<div id="wrap">
-		<div id="UofMglobalheader">
-<!-- BEGIN CAMPUS LINKS -->
-    <div id="campus_links">
-        <p>Campuses: </p>
-        <ul>
-          <li><a href="http://www.umn.edu">Twin Cities</a></li>
-
-          <li><a href="http://www.crk.umn.edu">Crookston</a></li>
-          <li><a href="http://www.d.umn.edu">Duluth</a></li>
-          <li><a href="http://www.morris.umn.edu">Morris</a></li>
-          <li><a href="http://www.r.umn.edu">Rochester</a></li>
-          <li><a href="http://www.umn.edu/campuses.php">Other Locations</a></li>
-        </ul>
-
-    </div>
-    <!-- END CAMPUS LINKS -->
-
- <!-- * BEGIN TEMPLATE HEADER (MAROON BAR)* -->
-    <div id="headerUofM">
-        
-      <div id="logo_uofm"><a href="http://www.umn.edu/">Go to the U of M home page</a></div>
-        
-
- <!--BEGIN search div-->
-      <div id="search_area">
-         <div id="search_nav"><a href="http://onestop.umn.edu/" id="btn_onestop">OneStop</a> <a href="https://www.myu.umn.edu/" id="btn_myu">myU</a></div>
-         
-<div class="search"> 
-<form action="http://google.umn.edu/search" method="get" name="gsearch" id="gsearch">
-<label for="search_field">Search U of M Web sites</label>
-<input type="text" id="search_field" name="q" onfocus="searchfocus(this)" value="Search U of M Web sites" />   
-<input type="image" value="Search" class="search_btn" alt="Submit Search" src="http://www.cfans.umn.edu/prod/fragments/cfans960globalheader/search_button.gif" />
-<input name="client" value="searchumn" type="hidden" />
-<input name="proxystylesheet" value="searchumn" type="hidden" />
-<input name="output" value="xml_no_dtd" type="hidden" />
-</form>  
-</div> 
-         
-</div></div>
-<!-- end "search" area -->
-     
-</div>
-<!-- End search div -->
-
-<!--END UofM TEMPLATE HEADER-->
-		<div id="introductory">
-			<h3>Welcome to the Apple Cultivar Selection Tool!</h3>
-			<p>Please use the following options to find the right apple cultivars for your site.</p>
-			<hr>
-		</div>
-		<div id="restarter">
-			<a href="destroy.php">Restart</a>
-		</div>
-		<div id="countryselector"><p>Will the site be in the <a href="javascript:void(0)" id="ohsaycanyousee">USA</a> or <a href="javascript:void(0)" id="ohcanada">Canada</a>?</p></div>
-
-<!-- In the future, if the USDA decides to remove it's CAPTCHA requirements, this will provide a Zip to Hardiness Zone converter righ on the page. -->
-<!-- 		<form name="zipperform" action="javascript:void(0)" id="zipenter" onsubmit="zipper()">
-			Enter your zip code: <input type="text" name="zip" >
-			<input type="submit" value="Submit">
-		</form> -->
-
-		<form id="usaselector">
-		Select the hardiness zone where you plan on planting: <a href="http://planthardiness.ars.usda.gov/PHZMWeb/" target="_blank" title="If you are unsure of your hardiness zone, clicking this [?] will take you to the USDA zone finder.">[?]</a><br />
-		<select class="hardinesser" name="usazones">
-			<option value="">Select proper hardiness zone:</option>
-			<option value="2a">2a</option>
-			<option value="2b">2b</option>
-			<option value="3a">3a</option>
-			<option value="3b">3b</option>
-			<option value="4a">4a</option>
-			<option value="4b">4b</option>
-			<option value="5a">5a</option>
-			<option value="5b">5b</option>
-			<option value="6a">6a</option>
-			<option value="6b">6b</option>
-			<option value="7a">7a</option> 
-			<option value="7b">7b</option>
-		</select><br />
-		</form>
-
-		<form id="canadaselector">
-		Select the average annual minimum temperature of your site in degrees Celsius: <a href="javascript:void(0)" title="Your selection will be converted into a USDA Hardiness Zone and used to generate a list of viable cultivars">[?]</a><br/>
-		<select class="hardinesser" name="canadazones">
-			<option value="">Select proper temperature:</option>
-			<option value="2a">-45.6&deg</option>
-			<option value="2b">-42.8&deg</option>
-			<option value="3a">-40&deg</option>
-			<option value="3b">-37.2&deg</option>
-			<option value="4a">-34.4&deg</option>
-			<option value="4b">-31.7&deg</option>
-			<option value="5a">-28.9&deg</option>
-			<option value="5b">-26.1&deg</option>
-			<option value="6a">-23.3&deg</option>
-			<option value="6b">-20.6&deg</option>
-			<option value="7a">-17.8&deg</option> 
-			<option value="7b">-15&deg</option>
-		</select><br />
-		</form>
-
 	<div id="infoModal" title="Apple Information"><p></p></div>
 	<div id="applearea"></div>
 	</div>

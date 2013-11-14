@@ -22,7 +22,7 @@
 	echo "<b>Refined by <i>(click to remove)</i>:</b><br>";
 
 	foreach( $_SESSION as $get_name => $col_name ){
-		echo '<i><a href="javascript:void(0)" class="unsetter" onclick="unsetAttributes(\'' . $get_name . '\')">' . $get_name . '=>' . $col_name . '</a>, </i>';
+		echo '<i><a href="javascript:void(0)" class="unsetter" onclick="unsetAttributes(\'' . $get_name . '\')">' . $get_name . '=>' . $col_name . ',</a> </i>';
 		$where .= " AND " . $get_name . " LIKE '%" . $col_name . "%'";
 	}
 
@@ -30,25 +30,25 @@
 	
 	$result = mysql_query($where);
 
-	if ( !mysql_fetch_array($result) ){
+	if ( mysql_num_rows($result) == 0 ){
 		echo "<b><i>There are currently no apples matching the given criteria. Please remove some options by clicking on the blue links above!</i></b>";
 	}
 	
 	/* Fetch records from query results */
 	while ( $row = mysql_fetch_array( $result ) ) {
-		echo '<table class="appleresults" border="1" id="' . $row['CultivarName'] .'">';
+		echo '<table class="appleresults" id="' . $row['CultivarName'] .'">';
 		if ( $row['PhotoFruit'] ){
-			echo "<tr><td><img src='" . $row['PhotoFruit'] . "' alt='Photo broken' width='150' height='150'></td></tr>";
+			echo "<tr><td><img src='" . $row['PhotoFruit'] . "' alt='Photo broken' class='apple-img'></td></tr>";
 		}
 		if ( !$row['PhotoFruit'] ) {
 			if ( $row['PhotoTree'] ) {
-				echo "<tr><td><img src='" . $row['PhotoTree'] . "' alt='Photo broken' width='150' height='150'></td></tr>";	
+				echo "<tr><td><img src='" . $row['PhotoTree'] . "' alt='Photo broken' class='apple-img'></td></tr>";	
 			}
 			if ( !$row['PhotoTree'] ) {
-				echo "<tr><td><img src='/images/APPLE2.png' width='150' height='150'></td></tr>";
+				echo "<tr><td><img src='/images/APPLE2.png' class='apple-img'></td></tr>";
 			}
 		}
-		echo "<tr><td class='name'><b>Name: </b>" . $row['CultivarName'] . "</td></tr>";
+		echo "<tr><td class='name'><p>" . $row['CultivarName'] . "</p></td></tr>";
 		echo "</table>";
 	}
 	mysql_close($con);
